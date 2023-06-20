@@ -34,7 +34,11 @@ while opcao != 0:
         titulos('LISTANDO MANIFESTAÇÕES')
         listarManifestacoes(conexao)
 
-    if opcao == 3:
+    elif opcao == 2:
+        titulos('LISTAGEM POR MANIFESTAÇÃO')
+        listarPorTipo(conexao)
+
+    elif opcao == 3:
         titulos('QUAL O TIPO DE MANIFESTAÇÃO QUE DESEJA CRIAR?:\n')
         criarManifestacao(conexao)
 
