@@ -58,3 +58,43 @@ def listarPorTipo(conexao):
             print('Opção invalida')
     else:
         print("Não há Manifestações")
+
+def criarManifestacao(conexao):
+    print('1 - Reclamação\n2 - Sugestão\n3 - Elogio')
+    tipo = int(input('Digite sua opção: '))
+
+    if tipo == 1:
+        titulo = input('digite o titulo da sua reclamação: ')
+        descricao = input('Descreva sua reclamação: ')
+        nome = input('Digite seu nome: ')
+
+        sqlInsercao = 'insert into ocorrencias (tipo,titulo,descricao,autor) values(%s,%s,%s,%s)'
+        valores = (tipo, titulo, descricao, nome)
+        insertNoBancoDados(conexao, sqlInsercao, valores)
+
+        print('Manifestação criada com sucesso')
+
+    elif tipo == 2:
+        titulo = input('digite o titulo da sua sugestão: ')
+        descricao = input('Descreva sua sugestão: ')
+        nome = input('Digite seu nome: ')
+
+        sqlInsercao = 'insert into ocorrencias (tipo,titulo,descricao,autor) values(%s,%s,%s,%s)'
+        valores = (tipo, titulo, descricao, nome)
+        insertNoBancoDados(conexao, sqlInsercao, valores)
+
+        print('Manifestação criada com sucesso')
+
+    elif tipo == 3:
+        titulo = input('digite o titulo do seu elogio: ')
+        descricao = input('Descreva seu elogio: ')
+        nome = input('Digite seu nome: ')
+
+        sqlInsercao = 'insert into ocorrencias (tipo,titulo,descricao,autor) values(%s,%s,%s,%s)'
+        valores = (tipo, titulo, descricao, nome)
+        insertNoBancoDados(conexao, sqlInsercao, valores)
+
+        print('Manifestação criada com sucesso')
+
+    else:
+        print('Solicitação invalida')
