@@ -42,6 +42,10 @@ while opcao != 0:
         titulos('QUAL O TIPO DE MANIFESTAÇÃO QUE DESEJA CRIAR?:\n')
         criarManifestacao(conexao)
 
+    elif opcao == 4:
+        titulos('QUANTIDADE DE MANIFESTAÇÕES')
+        quantidadeManifestacoes(conexao)
+
 
 
 
