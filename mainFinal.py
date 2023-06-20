@@ -39,13 +39,16 @@ while opcao != 0:
         listarPorTipo(conexao)
 
     elif opcao == 3:
-        titulos('QUAL O TIPO DE MANIFESTAÇÃO QUE DESEJA CRIAR?:\n')
+        titulos('CRIAR MANIFESTAÇÃO')
         criarManifestacao(conexao)
 
     elif opcao == 4:
         titulos('QUANTIDADE DE MANIFESTAÇÕES')
         quantidadeManifestacoes(conexao)
 
+    elif opcao == 5:
+        titulos('PESQUISAR POR ID')
+        pesquisaID(conexao)
 
 
 
