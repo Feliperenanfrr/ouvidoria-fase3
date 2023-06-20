@@ -131,16 +131,17 @@ def quantidadeManifestacoes(conexao):
 
 
 def pesquisaID(conexao):
-    id = input('Digite o ID da Manifestação: ')
-    consultaID = f"select * from ocorrencias where ID = '{id}' "
-    ouvidoria = listarBancoDados(conexao, consultaID)
+    def pesquisaID(conexao):
+        id = int(input('Digite o ID da Manifestação: '))
+        consultaID = f"select * from ocorrencias where ID = '{id}' "
+        ouvidoria = listarBancoDados(conexao, consultaID)
 
-    if len(ouvidoria) != 0:
-        for item in ouvidoria:
-            print(f'ID: {item[0]} - TIPO: {item[1]} - TÍTULO: {item[2]} - DESCRIÇÃO: {item[3]} - AUTOR: {item[4]}')
+        if len(ouvidoria) != 0:
+            for item in ouvidoria:
+                print(f'ID: {item[0]} - TIPO: {item[1]} - TÍTULO: {item[2]} - DESCRIÇÃO: {item[3]} - AUTOR: {item[4]}')
 
-    else:
-        print('Não há manifestações com esse ID')
+        else:
+            print('Não há manifestações com esse ID')
 
 def modificarManifestacao(conexao):
     id = int( input('Digite o ID da Manifestação: '))
