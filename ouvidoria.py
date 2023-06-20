@@ -98,3 +98,33 @@ def criarManifestacao(conexao):
 
     else:
         print('Solicitação invalida')
+
+def quantidadeManifestacoes(conexao):
+    """
+            O count gera uma tupla com a quantidade de elementos do que foi selecionado
+            por isso a é utilizado a variável 'quantidadeX[0][0]', que é apenas o recorte
+            do numero representando a quantidade
+            """
+    consultaListagem = 'select * from ocorrencias'
+    ouvidoria = listarBancoDados(conexao, consultaListagem)
+
+    if len(ouvidoria) != 0:
+        consultaContador = 'select count(*) from ocorrencias'
+        quantidadeGeral = listarBancoDados(conexao, consultaContador)
+
+        consultaReclamacao = "select count(*) from ocorrencias where tipo = 1 "
+        quantidadeReclamacao = listarBancoDados(conexao, consultaReclamacao)
+
+        consultaSugestao = "select count(*) from ocorrencias where tipo = 2"
+        quantidadeSugestao = listarBancoDados(conexao, consultaSugestao)
+
+        consultaElogio = "select count(*) from ocorrencias where tipo = 3 "
+        quantidadeElogio = listarBancoDados(conexao, consultaElogio)
+
+        print(f'Quantidade de manifestações: {quantidadeGeral[0][0]}')
+        print(f'Quantidade de reclamações: {quantidadeReclamacao[0][0]}')
+        print(f'Quantidade de sugestões: {quantidadeSugestao[0][0]}')
+        print(f'Quantidade de elogios: {quantidadeElogio[0][0]}')
+
+    else:
+        print('Não Há manifestação')
