@@ -13,7 +13,7 @@ Alunos:
 from operacoesbd import *
 from ouvidoria import *
 
-conexao = abrirBancoDados('localhost', 'root', 'Mat16062000!', 'ouvidoria1')
+conexao = abrirBancoDados('localhost', 'root', '123451', 'ouvidoria')
 
 print('BEM VINDO À OUVIDORIA')
 opcao = 1
@@ -58,12 +58,11 @@ while opcao != 0:
         titulos('EXCLUSÃO DE MANIFESTAÇÕES')
         excluirManifestacao(conexao)
 
+    elif opcao != 0:
+        print('Opção invalida')
 
+    print('-' * 60)
 
-
-
-
-
-
+    print('Obrigado por ter utilizado nosso serviço! :)')
 
 encerrarBancoDados(conexao)
