@@ -141,3 +141,40 @@ def pesquisaID(conexao):
 
     else:
         print('Não há manifestações com esse ID')
+
+def modificarManifestacao(conexao):
+    id = int( input('Digite o ID da Manifestação: '))
+    consultaID = f"select * from ocorrencias where ID = '{id}' "
+    ouvidoria = listarBancoDados(conexao, consultaID)
+
+    if len(ouvidoria) != 0:
+
+        novoTitulo = input('Digite o novo titulo da manifestação: ')
+        novaDescricao = input('Digite a nova descrição da manifestação: ')
+        sqlAtualizar = f"update ocorrencias set titulo = %s, descricao = %s  where ID = {id}"
+        valores = (novoTitulo, novaDescricao)
+
+        atualizarBancoDados(conexao, sqlAtualizar, valores)
+        print('Manifestação modificada com sucesso')
+    else:
+        print('Não há Manifestação com este ID para ser modificado\nTente novamente')
+
+def excluirManifestacao(conexao):
+    """
+           Importando mencionar que são utilizados aspas duplas na consulta
+           pois ao utilizar o format, a variavel id precisa estar entre aspas,
+           para manter a hierarquia utilizamos tipos diferentes de aspas
+           """
+
+    id = int(input('Digite o ID da manifestação: '))
+    consultaListagem = f"select * from ocorrencias where ID = '{id}' "
+    ouvidoria = listarBancoDados(conexao, consultaListagem)
+
+    if len(ouvidoria) != 0:
+        consultaExcluir = 'delete from ocorrencias where ID = %s '
+        dados = [id]
+
+        excluirBancoDados(conexao, consultaExcluir, dados)
+        print('Excluido com sucesso')
+    else:
+        print('Não existe manifestações com esse ID')

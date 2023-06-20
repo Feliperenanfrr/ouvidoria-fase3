@@ -50,7 +50,13 @@ while opcao != 0:
         titulos('PESQUISAR POR ID')
         pesquisaID(conexao)
 
+    elif opcao == 6:
+        titulos('MODIFICANDO MANIFESTAÇÕES')
+        modificarManifestacao(conexao)
 
+    elif opcao == 7:
+        titulos('EXCLUSÃO DE MANIFESTAÇÕES')
+        excluirManifestacao(conexao)
 
 
 
