@@ -43,3 +43,14 @@ while opcao != 0:
         manifestacoes_tipo = listarPorTipo(conexao, tipo)
         for manifestacao in manifestacoes_tipo:
             print(manifestacao)
+
+
+    elif opcao == 3:
+        print('CRIAR MANIFESTAÇÃO')
+        print('1 - Reclamação\n2 - Sugestão\n3 - Elogio')
+        tipo = int(input('Digite sua opção: '))
+        titulo = input('Digite o título da sua manifestação: ')
+        descricao = input('Descreva sua manifestação: ')
+        autor = input('Digite seu nome: ')
+        criado = criarManifestacao(conexao, tipo, titulo, descricao, autor)
+        print(criado)

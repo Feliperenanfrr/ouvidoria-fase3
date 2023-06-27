@@ -37,3 +37,11 @@ def listarPorTipo(conexao,tipo):
         return manifestacoes
     else:
         return 'Não há manifestações desse tipo'
+
+
+def criarManifestacao(conexao,tipo, titulo, descricao, autor):
+    sqlInsercao = 'INSERT INTO ocorrencias (tipo, titulo, descricao, autor) VALUES (%s, %s, %s, %s)'
+    valores = (tipo, titulo, descricao, autor)
+    insertNoBancoDados(conexao, sqlInsercao, valores)
+
+    return 'Manifestação criada com sucesso'
