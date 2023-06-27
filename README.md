@@ -1,8 +1,14 @@
 # Ouvidoria
 
-### Operações BD
+### Arquivos do projeto:
+- **MainMenuFinal.py**
+    - Arquivo principal do projeto 
+- **ouvidoriaFinal.py**
+    - Arquivo contendo as funções do projeto
+- **operacoesbd.py**
+    - Arquivos contendo as funções para operações com banco de dados (explicado melhor a seguir)
 
-Pacote que possui todos os métodos utilizados para fazer operações no banco de dados, sendo eles:
+### Operações BD
 
 - **Abrir banco de dados**
 

@@ -56,7 +56,9 @@ while opcao != 0:
 
     elif opcao == 7:
         titulos('EXCLUSÃO DE MANIFESTAÇÕES')
-        excluirManifestacao(conexao)
+        id = int(input('Digite o ID da manifestação: '))
+        excluido = excluirManifestacao(conexao,id)
+        print(excluido)
 
     elif opcao != 0:
         print('Opção invalida')
@@ -64,6 +66,8 @@ while opcao != 0:
     print('-' * 60)
 
 print('Obrigado por ter utilizado nosso serviço! :)')
+
+encerrarBancoDados(conexao)
 
 
 
