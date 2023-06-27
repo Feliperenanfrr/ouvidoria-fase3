@@ -54,3 +54,14 @@ while opcao != 0:
         autor = input('Digite seu nome: ')
         criado = criarManifestacao(conexao, tipo, titulo, descricao, autor)
         print(criado)
+
+    elif opcao == 4:
+        titulos('QUANTIDADE DE MANIFESTAÇÕES')
+        quantidade = quantidadeManifestacoes(conexao)
+        print(quantidade)
+
+    elif opcao == 5:
+        titulos('PESQUISAR POR ID')
+        id = int(input('Digite o ID da Manifestação: '))
+        pesquisa = pesquisaID(conexao, id)
+        print(pesquisa)
