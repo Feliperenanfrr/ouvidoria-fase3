@@ -58,6 +58,13 @@ while opcao != 0:
         titulos('EXCLUSÃO DE MANIFESTAÇÕES')
         excluirManifestacao(conexao)
 
+    elif opcao != 0:
+        print('Opção invalida')
+
+    print('-' * 60)
+
+print('Obrigado por ter utilizado nosso serviço! :)')
+
 
 
 
