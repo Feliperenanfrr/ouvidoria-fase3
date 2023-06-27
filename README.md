@@ -2,13 +2,9 @@
 
 ### Arquivos do projeto:
 - **MainMenuFinal.py**
-    - Arquivo principal do projeto atualizado
-- **mainFinal.py**
-    - Versão desatualizada do arquivo principal
-- **ouvidoria.py**
-    - Versão desatualizada do arquivo com as funções do projeto
+    - Arquivo principal do projeto 
 - **ouvidoriaFinal.py**
-    - Versão finalizada das funções do projeto
+    - Arquivo contendo as funções do projeto
 - **operacoesbd.py**
     - Arquivos contendo as funções para operações com banco de dados (explicado melhor a seguir)
 
