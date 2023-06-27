@@ -45,3 +45,46 @@ def criarManifestacao(conexao,tipo, titulo, descricao, autor):
     insertNoBancoDados(conexao, sqlInsercao, valores)
 
     return 'Manifestação criada com sucesso'
+
+def quantidadeManifestacoes(conexao):
+    """
+            O count gera uma tupla com a quantidade de elementos do que foi selecionado
+            por isso a é utilizado a variável 'quantidadeX[0][0]', que é apenas o recorte
+            do numero representando a quantidade
+            """
+    consultaListagem = 'select * from ocorrencias'
+    ouvidoria = listarBancoDados(conexao, consultaListagem)
+
+    if len(ouvidoria) != 0:
+        consultaContador = 'select count(*) from ocorrencias'
+        quantidadeGeral = listarBancoDados(conexao, consultaContador)
+
+        consultaReclamacao = "select count(*) from ocorrencias where tipo = 1 "
+        quantidadeReclamacao = listarBancoDados(conexao, consultaReclamacao)
+
+        consultaSugestao = "select count(*) from ocorrencias where tipo = 2"
+        quantidadeSugestao = listarBancoDados(conexao, consultaSugestao)
+
+        consultaElogio = "select count(*) from ocorrencias where tipo = 3 "
+        quantidadeElogio = listarBancoDados(conexao, consultaElogio)
+
+        return (f'Quantidade de manifestações: {quantidadeGeral[0][0]}\n'
+               f'Quantidade de reclamações: {quantidadeReclamacao[0][0]}\n'
+               f'Quantidade de sugestões: {quantidadeSugestao[0][0]}\n'
+               f'Quantidade de elogios: {quantidadeElogio[0][0]}\n')
+
+    else:
+        return 'Não Há manifestação'
+
+
+def pesquisaID(conexao, id):
+
+    consultaID = f"select * from ocorrencias where ID = '{id}' "
+    ouvidoria = listarBancoDados(conexao, consultaID)
+
+    if len(ouvidoria) != 0:
+        for item in ouvidoria:
+            return (f'ID: {item[0]} - TIPO: {item[1]} - TÍTULO: {item[2]} - DESCRIÇÃO: {item[3]} - AUTOR: {item[4]}')
+
+    else:
+        return 'Não há manifestações com esse ID'
