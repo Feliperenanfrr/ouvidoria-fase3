@@ -65,3 +65,9 @@ while opcao != 0:
         id = int(input('Digite o ID da Manifestação: '))
         pesquisa = pesquisaID(conexao, id)
         print(pesquisa)
+
+    elif opcao == 6:
+        titulos('MODIFICANDO MANIFESTAÇÕES')
+        id = int(input('Digite o ID da Manifestação: '))
+        modificado = modificarManifestacao(conexao,id)
+        print(modificado)
