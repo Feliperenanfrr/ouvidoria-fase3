@@ -41,9 +41,15 @@ while opcao != 0:
         print('Qual tipo de manifestação que quer visualizar\n1 - Reclamação\n2 - Sugestão\n3 - Elogio')
         tipo = int(input('Digite sua opção: '))
         manifestacoes_tipo = listarPorTipo(conexao, tipo)
-        for manifestacao in manifestacoes_tipo:
-            print(manifestacao)
+        if len(manifestacoes_tipo) != 0:
+            for manifestacao in manifestacoes_tipo:
+                print(manifestacao, end='')
 
+        else:
+
+            print('Não há manifestações cadastradas')
+
+        print()
 
     elif opcao == 3:
         print('CRIAR MANIFESTAÇÃO')
@@ -83,6 +89,6 @@ while opcao != 0:
 
     print('-' * 60)
 
-    print('Obrigado por ter utilizado nosso serviço! :)')
+print('Obrigado por ter utilizado nosso serviço! :)')
 
-    encerrarBancoDados(conexao)
+encerrarBancoDados(conexao)
