@@ -106,3 +106,22 @@ def modificarManifestacao(conexao, id):
         return'Manifestação modificada com sucesso'
     else:
         return 'Não há Manifestação com este ID para ser modificado\nTente novamente'
+
+def excluirManifestacao(conexao,id):
+    """
+           Importando mencionar que são utilizados aspas duplas na consulta
+           pois ao utilizar o format, a variavel id precisa estar entre aspas,
+           para manter a hierarquia utilizamos tipos diferentes de aspas
+           """
+
+    consultaListagem = f"select * from ocorrencias where ID = '{id}' "
+    ouvidoria = listarBancoDados(conexao, consultaListagem)
+
+    if len(ouvidoria) != 0:
+        consultaExcluir = 'delete from ocorrencias where ID = %s '
+        dados = [id]
+
+        excluirBancoDados(conexao, consultaExcluir, dados)
+        return 'Excluido com sucesso'
+    else:
+        return 'Não existe manifestações com esse ID'
