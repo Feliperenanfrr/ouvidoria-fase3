@@ -88,3 +88,21 @@ def pesquisaID(conexao, id):
 
     else:
         return 'Não há manifestações com esse ID'
+
+
+def modificarManifestacao(conexao, id):
+
+    consultaID = f"select * from ocorrencias where ID = '{id}' "
+    ouvidoria = listarBancoDados(conexao, consultaID)
+
+    if len(ouvidoria) != 0:
+
+        novoTitulo = input('Digite o novo titulo da manifestação: ')
+        novaDescricao = input('Digite a nova descrição da manifestação: ')
+        sqlAtualizar = f"update ocorrencias set titulo = %s, descricao = %s  where ID = {id}"
+        valores = (novoTitulo, novaDescricao)
+
+        atualizarBancoDados(conexao, sqlAtualizar, valores)
+        return'Manifestação modificada com sucesso'
+    else:
+        return 'Não há Manifestação com este ID para ser modificado\nTente novamente'
