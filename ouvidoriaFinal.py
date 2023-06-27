@@ -9,20 +9,18 @@ def listarManifestacoes(conexao):
     consultaListagem = 'select * from ocorrencias'
     ouvidoria = listarBancoDados(conexao, consultaListagem)
 
-    if len(ouvidoria) != 0:
-        manifestacoes = []
-        for item in ouvidoria:
-            tipo = ""
-            if item[1] == 1:
-                tipo = "Reclamação"
-            elif item[1] == 2:
-                tipo = "Sugestão"
-            elif item[1] == 3:
-                tipo = "Elogio"
-            manifestacoes.append(f'ID {item[0]} - Título: {item[2]} - Autor: {item[4]} - {tipo}')
-        return manifestacoes
-    else:
-        return 'Não há manifestações cadastradas'
+
+    manifestacoes = []
+    for item in ouvidoria:
+        tipo = ""
+        if item[1] == 1:
+            tipo = "Reclamação"
+        elif item[1] == 2:
+            tipo = "Sugestão"
+        elif item[1] == 3:
+            tipo = "Elogio"
+        manifestacoes.append(f'ID {item[0]} - Título: {item[2]} - Autor: {item[4]} - {tipo}')
+    return manifestacoes
 
 
 
