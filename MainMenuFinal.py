@@ -71,3 +71,18 @@ while opcao != 0:
         id = int(input('Digite o ID da Manifestação: '))
         modificado = modificarManifestacao(conexao,id)
         print(modificado)
+
+    elif opcao == 7:
+        titulos('EXCLUSÃO DE MANIFESTAÇÕES')
+        id = int(input('Digite o ID da manifestação: '))
+        excluido = excluirManifestacao(conexao, id)
+        print(excluido)
+
+    elif opcao != 0:
+        print('Opção invalida')
+
+    print('-' * 60)
+
+    print('Obrigado por ter utilizado nosso serviço! :)')
+
+    encerrarBancoDados(conexao)
